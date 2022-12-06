@@ -71,3 +71,42 @@ for li in f:
     #part 2
     moveMulti(m, eval('c%s' % f), eval('c%s' % t))
 getLayer()
+##--------------------------------------------
+#D6 P1
+f = open("day6.txt", "r")
+signal = f.read()
+mem_buff = set()
+bits = 0
+connected = False
+def check():
+    for x in range(4):
+        global connected
+        mem_buff.add(signal[bits+x])
+        if len(mem_buff)==4:
+            connected = True
+            print(bits+4)
+for i in range(len(signal)-4):
+    if  connected is not True:
+        bits+=1
+        check()
+        mem_buff.clear()
+##--------------------------------------------
+#D6 P2
+f = open("day6.txt", "r")
+signal = f.read()
+mem_buff = set()
+bits = 0
+connected = False
+def check():
+    for x in range(14):
+        global connected
+        mem_buff.add(signal[bits+x])
+        if len(mem_buff)==14:
+            connected = True
+            print(bits+14)
+for i in range(len(signal)-14):
+    if  connected is not True:
+        bits+=1
+        check()
+        mem_buff.clear()
+##--------------------------------------------
